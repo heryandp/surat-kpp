@@ -59,6 +59,7 @@
 				    <p>Surat Masuk</p>
 				  </div>
 				  <div class="ui secondary segment">
+				  	<div class="ui green button">Tambah</div>
 					<table id="surat-masuk" class="ui six wide celled small table">
 					  	<thead>
 					    	<tr>
@@ -103,9 +104,29 @@
 			</div>
 		</div>
 	</body>
+
+	<!-- Modal -->
+	<div class="ui tiny modal">
+	  <div class="header">
+	    Tambah Surat Masuk
+	  </div>
+	  <div class="content">
+		Test
+	  </div>
+	  <div class="actions">
+	    <div class="ui black deny button">
+	      Batal
+	    </div>
+	    <div class="ui positive button">
+	      Tambahkan
+	    </div>
+	  </div>
+	</div>
+
 	<script>
 		$( document ).ready(function() {
 		    $('.ui.dropdown').dropdown();
+		    $('.ui.modal').modal('show');
 		    $('#surat-masuk').DataTable({
 		    	responsive: true,
 		    	autoFill: true,
