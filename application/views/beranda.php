@@ -60,6 +60,7 @@
 				  </div>
 				  <div class="ui secondary segment">
 				  	<div class="ui green button">Tambah</div>
+				  	<div class="ui primary button">Tambah Massal</div>
 					<table id="surat-masuk" class="ui six wide celled small table">
 					  	<thead>
 					    	<tr>
