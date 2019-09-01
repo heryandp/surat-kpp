@@ -1,8 +1,25 @@
 <html>
 	<head>
 		<title>Surat Kantor - KPP Pratama Jakarta Grogol Petamburan</title>
+
+		<!-- css -->
 		<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/semantic/semantic.min.css') ?>">
+		<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/datatables/datatables.min.css') ?>">
+		<style>
+			/*.datatbles_length { display: inline-block;margin-right: 2em; }
+			.dataTables_filter { display: inline-block; position: absolute !important; right: 2em; }
+			table.dataTable.table { margin-top: 1em; }*/
+			.datatableku {
+				display: flex;
+			    justify-content: space-between;
+			    padding-bottom: 0.5em;
+			    padding-top: 0.5em;
+			}
+		</style>
+
+		<!-- js -->
 		<script src="<?php echo base_url('assets/js/jquery-3.3.1.min.js') ?>"></script>
+		<script src="<?php echo base_url('assets/datatables/datatables.min.js') ?>"></script>
 		<script src="<?php echo base_url('assets/semantic/semantic.min.js') ?>"></script>
 	</head>
 	<body>
@@ -32,12 +49,17 @@
 		<!-- Isi -->
 		<div class="ui centered grid">
 		    <div class="fourteen wide column"> 
+				<div class="ui breadcrumb">
+				  <a class="section">Dashboard</a>
+				  <div class="divider"> / </div>
+				  <a class="active section">Surat Masuk</a>
+				</div>
 				<div class="ui segments">
 				  <div class="ui segment">
 				    <p>Surat Masuk</p>
 				  </div>
 				  <div class="ui secondary segment">
-					<table class="ui six wide celled small table">
+					<table id="surat-masuk" class="ui six wide celled small table">
 					  	<thead>
 					    	<tr>
 							    <th>No</th>
@@ -82,6 +104,18 @@
 		</div>
 	</body>
 	<script>
-		$('.ui.dropdown').dropdown();
+		$( document ).ready(function() {
+		    $('.ui.dropdown').dropdown();
+		    $('#surat-masuk').DataTable({
+		    	responsive: true,
+		    	autoFill: true,
+		    	dom: '<"datatableku"lBf>t<"datatableku"ip>',
+		    	// dom: 'lBfrtip',
+			    buttons: [
+			        'copy', 'excel', 'pdf'
+			    ]
+			});
+		});
+		// $('.ui.dropdown').dropdown();
 	</script>
 </html>
