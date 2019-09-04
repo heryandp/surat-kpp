@@ -60,7 +60,7 @@
 				  </div>
 				  <div class="ui secondary segment">
 				  	<div id="tambah-surat" class="ui green button">Tambah</div>
-				  	<div class="ui primary button">Tambah Massal</div>
+				  	<div id="tambah-surat-massal" class="ui primary button">Tambah Massal</div>
 					<table id="surat-masuk" class="ui six wide celled small table">
 					  	<thead>
 					    	<tr>
@@ -140,6 +140,10 @@
 			$("#tambah-surat").click(function(){
 			    $('.ui.modal').modal('show');
 			    $('#judul-modal').text('Tambah Surat Masuk');
+			});
+			$("#tambah-surat-massal").click(function(){
+			    $('.ui.modal').modal('show');
+			    $('#judul-modal').text('Tambah Surat Masuk Massal');
 			});
 			$(".ui.modal").modal({
 				closable: true
