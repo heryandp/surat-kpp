@@ -30,10 +30,10 @@
 				<i class="envelope icon"></i> Surat Kantor
 			</a>
 		  </div>
-		  <a class="item"><i class="home icon"></i> Dashboard</a>
-		  <a class="item active"><i class="inbox green icon"></i> Surat Masuk</a>
-		  <a class="item"><i class="inbox blue icon"></i> Surat Keluar</a>
-		  <a class="item"><i class="sliders horizontal icon"></i> Pengaturan</a>
+		  <a id="menu-dashboard" class="item"><i class="home icon"></i> Dashboard</a>
+		  <a id="menu-surat-masuk" class="item"><i class="inbox green icon"></i> Surat Masuk</a>
+		  <a id="menu-surat-keluar" class="item"><i class="inbox blue icon"></i> Surat Keluar</a>
+		  <a id="menu-pengaturan" class="item"><i class="sliders horizontal icon"></i> Pengaturan</a>
 		  <div class="right menu">
 		    <div class="ui dropdown item">
 		      <i class="user circle outline icon"></i> Heryan Dwiyoga Putra <i class="dropdown icon"></i>
@@ -59,7 +59,7 @@
 				    <p>Surat Masuk</p>
 				  </div>
 				  <div class="ui secondary segment">
-				  	<div class="ui green button">Tambah</div>
+				  	<div id="tambah-surat" class="ui green button">Tambah</div>
 				  	<div class="ui primary button">Tambah Massal</div>
 					<table id="surat-masuk" class="ui six wide celled small table">
 					  	<thead>
@@ -85,18 +85,10 @@
 						      <td>Seksi Pemeriksaan</td>
 						      <td>Usulan Pemeriksaan a.n. PT AHAYYY</td>
 						      <td>Heryan Dwiyoga P</td>
-						      <td>Hapus</td>
-						    </tr>
-						    <tr>
-						      <td>2</td>
-						      <td>999/RIK/2019</td>
-						      <td>30-08-2019</td>
-						      <td>ND-123/WPJ.1/KP.0101/2019</td>
-						      <td>29-08-2019</td>
-						      <td>Seksi Pelayanan</td>
-						      <td>Usulan Pemeriksaan a.n. PT AHAYYY</td>
-						      <td>Heryan Dwiyoga P</td>
-						      <td>Hapus</td>
+						      <td>
+						      	<button class="ui icon orange button"> <i class="pencil alternate icon"></i> </button>
+						      	<button class="ui icon red button"> <i class="trash icon"></i> </button>
+						      </td>
 						    </tr>
 					  	</tbody>
 					</table>
@@ -108,7 +100,7 @@
 
 	<!-- Modal -->
 	<div class="ui tiny modal">
-	  <div class="header">
+	  <div id="judul-modal" class="header">
 	    Tambah Surat Masuk
 	  </div>
 	  <div class="content">
@@ -124,10 +116,15 @@
 	  </div>
 	</div>
 
+	<!-- Active -->
+	<script>
+		$("#menu-surat-masuk").addClass("item active");
+	</script>
+
 	<script>
 		$( document ).ready(function() {
 		    $('.ui.dropdown').dropdown();
-		    $('.ui.modal').modal('show');
+
 		    $('#surat-masuk').DataTable({
 		    	responsive: true,
 		    	autoFill: true,
@@ -136,6 +133,16 @@
 			    buttons: [
 			        'copy', 'excel', 'pdf'
 			    ]
+			});
+		});
+
+		$(function(){
+			$("#tambah-surat").click(function(){
+			    $('.ui.modal').modal('show');
+			    $('#judul-modal').text('Tambah Surat Masuk');
+			});
+			$(".ui.modal").modal({
+				closable: true
 			});
 		});
 		// $('.ui.dropdown').dropdown();
