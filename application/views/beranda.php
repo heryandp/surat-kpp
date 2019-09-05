@@ -113,6 +113,20 @@
 		    <label>Nomor Sekretariat</label>
 		    <input type="text" name="no-sekre" placeholder="999/99/069/KAP">
 		  </div>
+  		  <div class="field">
+		      <label>Sifat</label>
+		      <div class="ui selection dropdown">
+		          <input type="hidden" name="seksi">
+		          <i class="dropdown icon"></i>
+		          <div class="default text">Pilih Sifat</div>
+		          <div class="menu">
+			          <div class="item" data-value="1">Biasa</div>
+		              <div class="item" data-value="1">Segera</div>
+		              <div class="item" data-value="0">Sangat Segera</div>
+		              <div class="item" data-value="0">Lainnya</div>
+		          </div>
+		      </div>
+		  </div>
 		  <div class="field">
 		    <label>Hal</label>
 		    <input type="text" name="hal-surat" placeholder="Perihal">
@@ -145,10 +159,16 @@
 	</script>
 
 	<script>
+		// Title
+		$(function(){
+		   $(document).attr("title", "Surat Masuk - KPP Pratama XXX");
+		});
+
 		$( document ).ready(function() {
 		    $('.ui.dropdown').dropdown();
 		    $('.ui.checkbox').checkbox();
 
+		    // Datatables
 		    $('#surat-masuk').DataTable({
 		    	responsive: true,
 		    	autoFill: true,
@@ -160,6 +180,7 @@
 			});
 		});
 
+		// Form
 		$(function(){
 			$("#tambah-surat").click(function(){
 			    $('.ui.modal').modal('show');
