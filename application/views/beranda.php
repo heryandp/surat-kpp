@@ -1,51 +1,9 @@
-<html>
-	<head>
-		<title>Surat Kantor - KPP Pratama Jakarta Grogol Petamburan</title>
-
-		<!-- css -->
-		<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/semantic/semantic.min.css') ?>">
-		<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/datatables/datatables.min.css') ?>">
-		<style>
-			/*.datatbles_length { display: inline-block;margin-right: 2em; }
-			.dataTables_filter { display: inline-block; position: absolute !important; right: 2em; }
-			table.dataTable.table { margin-top: 1em; }*/
-			.datatableku {
-				display: flex;
-			    justify-content: space-between;
-			    padding-bottom: 0.5em;
-			    padding-top: 0.5em;
-			}
-		</style>
-
-		<!-- js -->
-		<script src="<?php echo base_url('assets/js/jquery-3.3.1.min.js') ?>"></script>
-		<script src="<?php echo base_url('assets/datatables/datatables.min.js') ?>"></script>
-		<script src="<?php echo base_url('assets/semantic/semantic.min.js') ?>"></script>
-	</head>
+<?php $this->load->view('template/head.php'); ?>
+	
 	<body>
 		<!-- Menu -->
-		<div class="ui large stackable menu">
-		  <div class="item">
-		  	<a class="ui large label">
-				<i class="envelope icon"></i> Surat Kantor
-			</a>
-		  </div>
-		  <a id="menu-dashboard" class="item"><i class="home icon"></i> Dashboard</a>
-		  <a id="menu-surat-masuk" class="item"><i class="inbox green icon"></i> Surat Masuk</a>
-		  <a id="menu-surat-keluar" class="item"><i class="inbox blue icon"></i> Surat Keluar</a>
-		  <a id="menu-pengaturan" class="item"><i class="sliders horizontal icon"></i> Pengaturan</a>
-		  <div class="right menu">
-		    <div class="ui dropdown item">
-		      <i class="user circle outline icon"></i> Heryan Dwiyoga Putra <i class="dropdown icon"></i>
-		      <div class="menu">
-		        <a class="item">Ubah Kata Sandi</a>
-		      </div>
-		    </div>
-		    <div class="item">
-		        <div class="ui red button">Keluar</div>
-		    </div>
-		  </div>
-		</div>
+		<?php $this->load->view('template/menu.php'); ?>
+
 		<!-- Isi -->
 		<div class="ui centered grid">
 		    <div class="fourteen wide column"> 
@@ -86,8 +44,26 @@
 						      <td>Usulan Pemeriksaan a.n. PT AHAYYY</td>
 						      <td>Heryan Dwiyoga P</td>
 						      <td>
-						      	<button class="ui icon orange button"> <i class="pencil alternate icon"></i> </button>
-						      	<button class="ui icon red button"> <i class="trash icon"></i> </button>
+						      	<button class="ui icon orange button"> <i class="pencil alternate small icon"></i> </button>
+						      	<button class="ui icon green button"> <i class="print small icon"></i> </button>
+						      	<button class="ui icon blue button"> <i class="eye small icon"></i> </button>
+						      	<button class="ui icon red button"> <i class="trash small icon"></i> </button>
+						      </td>
+						    </tr>
+						    <tr>
+						      <td>2</td>
+						      <td>998/RIK/2019</td>
+						      <td>29-08-2019</td>
+						      <td>ND-124/WPJ.1/KP.0101/2019</td>
+						      <td>29-08-2019</td>
+						      <td>Seksi Pemeriksaan</td>
+						      <td>Usulan Pemeriksaan a.n. PT AHAYYY</td>
+						      <td></td>
+						      <td>
+						      	<button class="ui icon orange button"> <i class="pencil alternate small icon"></i> </button>
+						      	<button class="ui icon green button"> <i class="print small icon"></i> </button>
+						      	<button class="ui icon blue button"> <i class="eye small icon"></i> </button>
+						      	<button class="ui icon red button"> <i class="trash small icon"></i> </button>
 						      </td>
 						    </tr>
 					  	</tbody>
@@ -104,7 +80,54 @@
 	    Tambah Surat Masuk
 	  </div>
 	  <div class="content">
-		Test
+		<form class="ui form">
+		   <div class="field">
+		      <label>Asal Surat</label>
+		      <div class="ui selection dropdown">
+		          <input type="hidden" name="seksi">
+		          <i class="dropdown icon"></i>
+		          <div class="default text">Pilih Asal</div>
+		          <div class="menu">
+		              <div class="item" data-value="1">Seksi</div>
+		              <div class="item" data-value="0">Luar Kantor</div>
+		          </div>
+		      </div>
+		  </div>
+		  <div class="field">
+		    <label>Asal Surat</label>
+		    <input type="text" name="asal-surat" placeholder="KPP Pratama Kebumen">
+		  </div>
+		  <div class="field">
+		      <label>Seksi</label>
+		      <div class="ui selection dropdown">
+		          <input type="hidden" name="seksi">
+		          <i class="dropdown icon"></i>
+		          <div class="default text">Pilih Seksi</div>
+		          <div class="menu">
+		              <div class="item" data-value="1">Seksi Pemeriksaan</div>
+		              <div class="item" data-value="0">Seksi Pelayanan</div>
+		          </div>
+		      </div>
+		  </div>
+		  <div class="field">
+		    <label>Nomor Sekretariat</label>
+		    <input type="text" name="no-sekre" placeholder="999/99/069/KAP">
+		  </div>
+		  <div class="field">
+		    <label>Hal</label>
+		    <input type="text" name="hal-surat" placeholder="Perihal">
+		  </div>
+		  <div class="field">
+		    <label>Scan Dokumen (.pdf)</label>
+		    <input type="file" name="scan-dokumen">
+		  </div>
+		  <div class="field">
+		      <div class="ui toggle checkbox">
+		        <input type="checkbox" name="gift" tabindex="0" class="hidden">
+		        <label>Cetak Disposisi</label>
+		      </div>
+		  </div>
+		</form>
 	  </div>
 	  <div class="actions">
 	    <div class="ui black deny button">
@@ -124,6 +147,7 @@
 	<script>
 		$( document ).ready(function() {
 		    $('.ui.dropdown').dropdown();
+		    $('.ui.checkbox').checkbox();
 
 		    $('#surat-masuk').DataTable({
 		    	responsive: true,
