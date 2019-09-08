@@ -46,6 +46,7 @@
 		<script type="text/javascript">
 			$(function(){
 				$("#menu-tentang").click(function(){
+					$('#judul-modal').text('Tentang Aplikasi');
 				    $('#modal-tentang').modal('show');
 				});
 

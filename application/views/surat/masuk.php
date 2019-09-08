@@ -24,7 +24,6 @@
 					    	<tr>
 							    <th>No</th>
 							    <th>No Agenda</th>
-							    <th>Tgl Agenda</th>
 							    <th>No Surat</th>
 							    <th>Tgl Surat</th>
 							    <th>Asal Surat</th>
@@ -34,7 +33,7 @@
 					  		</tr>
 						</thead>
 					  	<tbody>
-						    <tr>
+						    <!-- <tr>
 						      <td>1</td>
 						      <td>999/RIK/2019</td>
 						      <td>30-08-2019</td>
@@ -49,23 +48,7 @@
 						      	<button class="ui icon blue button"> <i class="eye small icon"></i> </button>
 						      	<button class="ui icon red button"> <i class="trash small icon"></i> </button>
 						      </td>
-						    </tr>
-						    <tr>
-						      <td>2</td>
-						      <td>998/RIK/2019</td>
-						      <td>29-08-2019</td>
-						      <td>ND-124/WPJ.1/KP.0101/2019</td>
-						      <td>29-08-2019</td>
-						      <td>Seksi Pemeriksaan</td>
-						      <td>Usulan Pemeriksaan a.n. PT AHAYYY</td>
-						      <td></td>
-						      <td>
-						      	<button class="ui icon orange button"> <i class="pencil alternate small icon"></i> </button>
-						      	<button class="ui icon green button"> <i class="print small icon"></i> </button>
-						      	<button class="ui icon blue button"> <i class="eye small icon"></i> </button>
-						      	<button class="ui icon red button"> <i class="trash small icon"></i> </button>
-						      </td>
-						    </tr>
+						    </tr> -->
 					  	</tbody>
 					</table>
 				  </div>
@@ -168,13 +151,28 @@
 
 			    // Datatables
 			    $('#surat-masuk').DataTable({
+			    	serverside:true,
+			    	processing:true,
 			    	responsive: true,
 			    	autoFill: true,
 			    	dom: '<"datatableku"lBf>t<"datatableku"ip>',
 			    	// dom: 'lBfrtip',
 				    buttons: [
 				        'copy', 'excel', 'pdf'
-				    ]
+				    ],
+				    "order": [],
+				    "ajax": {
+		                "url": "<?php echo site_url('/rekapmasuk')?>",
+		                "type": "POST"
+		            },
+		            "columnDefs": [ {
+			            "targets": -1,
+			            "data": null,
+			            "defaultContent": "<div class='ui teal buttons'><div class='ui button'>Aksi</div><div class='ui floating dropdown icon button'><i class='dropdown icon'></i><div class='menu'><div class='item'><i class='print icon'></i> Cetak Disposisi</div><div class='item'><i class='edit icon'></i> Edit</div><div class='item'><i class='delete icon'></i> Hapus</div></div></div></div>"
+			        } ],
+			        "drawCallback": function() {
+				        $('.ui.dropdown').dropdown();
+				    }
 				});
 			});
 
