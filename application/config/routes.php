@@ -57,3 +57,4 @@ $route['translate_uri_dashes'] = FALSE;
 $route['suratmasuk'] = 'modul/surat/masuk';
 $route['rekapmasuk'] = 'modul/surat/rekap_masuk';
 $route['suratkeluar'] = 'modul/surat/keluar';
+$route['pengaturan'] = 'pengaturan';
